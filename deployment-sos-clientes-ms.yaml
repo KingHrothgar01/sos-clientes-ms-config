@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: balanced
-  name: balanced
-  namespace: default
+    app: sos-clientes-ms
+  name: sos-clientes-ms
+  namespace: develop
 spec:
   replicas: 2
   minReadySeconds: 45
   selector:
     matchLabels:
-      app: balanced
+      app: sos-clientes-ms
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       labels:
-        app: balanced
+        app: sos-clientes-ms
     spec:
       containers:
       - image: kinghrothgar01/sos-clientes-ms:0.0.1-SNAPSHOT
@@ -32,8 +32,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: balanced
-  name: balanced
+    app: sos-clientes-ms
+  name: sos-clientes-ms
   namespace: default
 spec:
   ports:
@@ -42,6 +42,6 @@ spec:
     protocol: TCP
     targetPort: 8092
   selector:
-    app: balanced
+    app: sos-clientes-ms
   sessionAffinity: None
   type: LoadBalancer
