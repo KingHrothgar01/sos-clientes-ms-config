@@ -28,7 +28,7 @@ pipeline {
       		steps {																																			
       		    // Checkout the code from the repository
         		sh "cat deployment-sos-clientes-ms.yaml"
-                sh "sed -i 's/KingHrothgar01.*${APP_NAME}.*/${APP_NAME}:${VERSION}/g' deployment-sos-clientes-ms.yaml"
+                sh "sed -i 's/KingHrothgar01\/${APP_NAME}.*/${APP_NAME}:${VERSION}/g' deployment-sos-clientes-ms.yaml"
                 sh "cat deployment-sos-clientes-ms.yaml"
       		}
     	}																																					
