@@ -22,7 +22,7 @@ spec:
         app: sos-clientes-ms
     spec:
       containers:
-      - image: kinghrothgar01/sos-clientes-ms:latest
+      - image: kinghrothgar01/sos-clientes-ms:$IMAGE
         imagePullPolicy: IfNotPresent
         name: sos-clientes-ms
       restartPolicy: Always
