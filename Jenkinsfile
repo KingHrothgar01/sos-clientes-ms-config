@@ -34,7 +34,7 @@ pipeline {
     	stage('Push the Changed Deployment File to GIT') {
     		steps {
 				script {
-					withCredentials([usernamePassword(credentialsId: 'sos-loans-github')]) {
+					withCredentials([gitUsernamePassword(credentialsId: 'sos-loans-github', gitToolName: 'localGit')]) {
                     	sh "git config user.name 'Jenkins Pipeline'"
 						sh "git config user.email 'jenkins@localhost'"
 						sh "git add deployment-sos-clientes-ms.yaml"
