@@ -19,7 +19,6 @@ pipeline {
       		steps {
       		    // Checkout the code from the repository
         		echo "Checkout SCM"
-                git credentialsId: 'sos-loans-github',
                 url: 'https://github.com/KingHrothgar01/sos-clientes-ms-config.git',
                 branch: 'master'
       		}
@@ -35,7 +34,7 @@ pipeline {
     	stage('Push the Changed Deployment File to GIT') {
     		steps {
 				script {
-					withCredentials([usernamePassword(credentialsId: 'sos-loans-github')]) {
+					withCredentials([usernamePassword(credentialsId: 'sos-loans-github', gitToolName: 'Default')]) {
                     	sh "git config user.name 'Jenkins Pipeline'"
 						sh "git config user.email 'jenkins@localhost'"
 						sh "git add deployment-sos-clientes-ms.yaml"
