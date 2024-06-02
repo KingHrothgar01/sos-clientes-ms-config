@@ -38,6 +38,9 @@ pipeline {
 					withCredentials([usernamePassword(credentialsId: 'jenkins-loans-statements',
 													usernameVariable: 'GITHUB_APP',
 													passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
+														sh "git config user.email devopssameera@gmail.com"
+                    	sh "git config user.name 'Jenkins Pipeline'"
+						sh "git config user.email 'jenkins@localhost'"
 						sh "git add deployment-sos-clientes-ms.yaml"
 						sh "git commit -am 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
 						sh "git push http://$GITHUB_APP:$GITHUB_ACCESS_TOKEN@github.com/KingHrothgar01/sos-clientes-ms-config.git develop"
