@@ -21,7 +21,7 @@ pipeline {
         		echo "Checkout SCM"
                 git credentialsId: 'jenkins-loans-statements',
                 url: 'https://github.com/KingHrothgar01/sos-clientes-ms-config.git',
-                branch: 'master'
+                branch: 'develop'
       		}
     	}
         stage('Updating Kubernetes Deployment File') {
