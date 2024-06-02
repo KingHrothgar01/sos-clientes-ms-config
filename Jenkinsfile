@@ -19,7 +19,7 @@ pipeline {
       		steps {
       		    // Checkout the code from the repository
         		echo "Checkout SCM"
-                url: 'https://github.com/KingHrothgar01/sos-clientes-ms-config.git',
+                git url: 'https://github.com/KingHrothgar01/sos-clientes-ms-config.git',
                 branch: 'master'
       		}
     	}
